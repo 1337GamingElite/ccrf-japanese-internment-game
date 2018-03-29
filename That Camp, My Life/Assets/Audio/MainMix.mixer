@@ -87,7 +87,7 @@ AudioMixerGroupController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Sounds Effects
+  m_Name: Sound Effects
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 8ed1887c3470b8942aab8bf1df00f108
   m_Children: []

@@ -1,20 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
 
+	public Text nameTag;
+	public Text diaText;
 	Queue<string> lines;
+
+	public GameObject dialogueBox;
+	Animator anim;
 
 	// Use this for initialization
 	void Start () {
 		lines = new Queue<string>();
+		anim = dialogueBox.GetComponent<Animator>();
 	}
 
 	public void StartDialogue(Dialogue dialogue)
 	{
-		Debug.Log("starting convo w/" + dialogue.name);
+		//Debug.Log("starting convo w/" + dialogue.name);
+		anim.SetBool("IsOpen", true);
+		nameTag.text = dialogue.name;
 		lines.Clear();
 		foreach (string sentence in dialogue.lines)
 		{
@@ -33,13 +42,25 @@ public class DialogueManager : MonoBehaviour
 		}
 
 		string sentence = lines.Dequeue();
-		Debug.Log(sentence);
+		//Debug.Log(sentence);
+		StopAllCoroutines();
+		StartCoroutine(TypeLines(sentence));
+	}
+
+	IEnumerator TypeLines (string sentence)
+	{
+		diaText.text = "";
+		foreach (char letter in sentence.ToCharArray())
+		{
+			diaText.text += letter;
+			yield return new WaitForSeconds(0.03f);
+		}
 	}
 
 	void EndDialogue()
 	{
-		Debug.Log("End of convo");
 		FindObjectOfType<CameraFollow>().isCutscene = false;
+		anim.SetBool("IsOpen", false);
 	}
 
 }
