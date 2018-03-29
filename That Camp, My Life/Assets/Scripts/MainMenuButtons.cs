@@ -12,6 +12,7 @@ public class MainMenuButtons : MonoBehaviour
 
 	public void LoadLevel (int sceneIndex)
 	{
+		PlayerPrefs.DeleteAll();
 		StartCoroutine(LoadAsynched(sceneIndex));
 	}
 

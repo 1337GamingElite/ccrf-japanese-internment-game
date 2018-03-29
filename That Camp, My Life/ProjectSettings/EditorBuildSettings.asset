@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bedroom.unity
     guid: 859a213ad16f32b4c971297249d0afd2
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 9f5265d48dc22af42b33809c8cc9dbf4

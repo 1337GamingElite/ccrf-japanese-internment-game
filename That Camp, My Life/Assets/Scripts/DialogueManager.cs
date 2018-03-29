@@ -8,20 +8,23 @@ public class DialogueManager : MonoBehaviour
 
 	public Text nameTag;
 	public Text diaText;
+	public Image profile;
 	Queue<string> lines;
 
-	public GameObject dialogueBox;
+	public string saveStateName;
+
 	Animator anim;
 
 	// Use this for initialization
 	void Start () {
 		lines = new Queue<string>();
-		anim = dialogueBox.GetComponent<Animator>();
+		anim = profile.gameObject.GetComponent<Animator>();
 	}
 
 	public void StartDialogue(Dialogue dialogue)
 	{
 		//Debug.Log("starting convo w/" + dialogue.name);
+		profile.sprite = dialogue.profilePic;
 		anim.SetBool("IsOpen", true);
 		nameTag.text = dialogue.name;
 		lines.Clear();
@@ -60,6 +63,10 @@ public class DialogueManager : MonoBehaviour
 	void EndDialogue()
 	{
 		FindObjectOfType<CameraFollow>().isCutscene = false;
+		if (saveStateName != null)
+		{
+			PlayerPrefs.SetInt(saveStateName, 1);
+		}
 		anim.SetBool("IsOpen", false);
 	}
 

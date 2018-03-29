@@ -120,6 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Stinky Chinky
+    profilePic: {fileID: 21300000, guid: 6f2d1b68f80bba04fa385a3f038bd2de, type: 3}
     lines:
     - 1939 - A generation lost in the debris of war.
     - "As gunfire roars in Europe, I stay in Vancouver running my shop.\t"

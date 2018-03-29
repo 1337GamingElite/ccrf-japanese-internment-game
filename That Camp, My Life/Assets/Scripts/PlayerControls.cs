@@ -9,6 +9,9 @@ public class PlayerControls : MonoBehaviour
 	private float moveSpeed; // Move speed of player
 
 	public CameraFollow camera;
+	public string checkForThisPlayerPrefString;
+
+	public Transform secondarySpawn;
 
 	private Rigidbody2D rb2d; // Player's rigidbody
 
@@ -25,15 +28,19 @@ public class PlayerControls : MonoBehaviour
 	private bool DiaglogueOnLoad;
 
 	// Use this for initialization
-	void Start ()
+	void Start()
 	{
 		rb2d = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
 		diaTrig = GetComponent<DialogueTrigger>();
-		//Debug.Log(diaTrig);
-		if (DiaglogueOnLoad && diaTrig != null)
-			//Debug.Log("HIHIHIHJIHI");
+		if (secondarySpawn != null && PlayerPrefs.GetInt(checkForThisPlayerPrefString, 0) == 1)
+		{
+			this.transform.position = secondarySpawn.position;
+		}
+		if (DiaglogueOnLoad && diaTrig != null && PlayerPrefs.GetInt(checkForThisPlayerPrefString, 0) != 1)
+		{
 			diaTrig.Trigger();
+		}
 	}
 	
 	// Update is called once per frame
