@@ -2455,7 +2455,7 @@ Prefab:
     - target: {fileID: 224620251311936086, guid: 4d6512bf9da48844a82fd84df8038262,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 5.6226807
+      value: 5.6225586
       objectReference: {fileID: 0}
     - target: {fileID: 224620251311936086, guid: 4d6512bf9da48844a82fd84df8038262,
         type: 2}
@@ -2995,7 +2995,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.15117}
-  m_AnchoredPosition: {x: 16, y: -124.38611}
+  m_AnchoredPosition: {x: 16, y: -124.38599}
   m_SizeDelta: {x: 255.6, y: -136.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &464502449
@@ -3252,7 +3252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -22612,7 +22612,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1113073622
 RectTransform:
   m_ObjectHideFlags: 0
