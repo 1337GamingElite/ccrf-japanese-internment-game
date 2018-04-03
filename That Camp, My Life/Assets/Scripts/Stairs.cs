@@ -8,6 +8,7 @@ public class Stairs : MonoBehaviour {
 
 	public int sceneIndex;
 	public GameObject pressE;
+	bool onStairs = false;
 
 	public GameObject blackFade;
 
@@ -22,25 +23,27 @@ public class Stairs : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "Player")
+		if (other.gameObject.tag == "Player" && PlayerPrefs.GetInt("ShopperDone", 0) == 0)
 		{
 			pressE.SetActive(true);
+			onStairs = true;
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "Player")
+		if (other.gameObject.tag == "Player" && PlayerPrefs.GetInt("ShopperDone", 0) == 0)
 		{
 			pressE.SetActive(false);
+			onStairs = false;
 		}
 	}
 
 	void Update()
 	{
-		if (Input.GetButtonDown("Interact") && pressE.active)
+		if (Input.GetButtonDown("Interact") && pressE.active && onStairs)
 		{
-			Debug.Log("Hi");
+			//Debug.Log("Hi");
 			StartCoroutine(FadeOutToScene(sceneIndex));
 		}
 	}

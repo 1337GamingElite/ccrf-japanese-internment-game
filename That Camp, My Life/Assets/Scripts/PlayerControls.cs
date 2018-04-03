@@ -77,6 +77,13 @@ public class PlayerControls : MonoBehaviour
 			anim.SetFloat("LastMoveX", lastMove.x);
 			anim.SetFloat("LastMoveY", lastMove.y);
 		}
+		if (camera.isCutscene)
+		{
+			rb2d.velocity = new Vector2(0f, 0f);
+			anim.SetFloat("MoveX", 0);
+			anim.SetFloat("MoveY", 0);
+			anim.SetBool("PlayerMoving", false);
+		}
 	}
 
 }
