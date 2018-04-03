@@ -16,7 +16,8 @@ public class ShopperDialogueTrigger : MonoBehaviour {
 	void Start () {
 		cam = FindObjectOfType<CameraFollow>();
 		playerAnim = player.GetComponent<Animator>();
-		playerTrans = player.transform;
+		if (PlayerPrefs.GetInt("SleptFirstDay", 0) == 0)
+			playerTrans = player.transform;
 	}
 	
 	void OnTriggerEnter2D(Collider2D other)

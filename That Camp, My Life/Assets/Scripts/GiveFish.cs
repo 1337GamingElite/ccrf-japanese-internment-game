@@ -10,7 +10,7 @@ public class GiveFish : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		if (other.gameObject.tag == "Player" && PlayerPrefs.GetInt("HasFish", 0) == 1)
+		if (other.gameObject.tag == "Player" && PlayerPrefs.GetInt("HasFish", 0) == 1 && PlayerPrefs.GetInt("SleptFirstDay", 0) == 0)
 		{
 			isGoingToGiveFish = true;
 			pressE.SetActive(true);
@@ -19,7 +19,7 @@ public class GiveFish : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "Player" && PlayerPrefs.GetInt("HasFish", 0) == 1)
+		if (other.gameObject.tag == "Player" && PlayerPrefs.GetInt("HasFish", 0) == 1 && PlayerPrefs.GetInt("SleptFirstDay", 0) == 0) 
 		{
 			isGoingToGiveFish = false;
 			pressE.SetActive(false);

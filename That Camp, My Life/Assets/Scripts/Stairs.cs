@@ -23,7 +23,7 @@ public class Stairs : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "Player" && PlayerPrefs.GetInt("ShopperDone", 0) == 0)
+		if (other.gameObject.tag == "Player" && (PlayerPrefs.GetInt("ShopperDone", 0) == 0 || PlayerPrefs.GetInt("SleptFirstDay", 0) == 1))
 		{
 			pressE.SetActive(true);
 			onStairs = true;
@@ -32,7 +32,7 @@ public class Stairs : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other)
 	{
-		if (other.gameObject.tag == "Player" && PlayerPrefs.GetInt("ShopperDone", 0) == 0)
+		if (other.gameObject.tag == "Player" && (PlayerPrefs.GetInt("ShopperDone", 0) == 0 || PlayerPrefs.GetInt("SleptFirstDay", 0) == 1))
 		{
 			pressE.SetActive(false);
 			onStairs = false;

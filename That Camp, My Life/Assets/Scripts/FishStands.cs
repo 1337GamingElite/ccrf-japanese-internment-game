@@ -20,7 +20,7 @@ public class FishStands : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			if (PlayerPrefs.GetInt("PlayerMetShopper", 0) == 1)
+			if (PlayerPrefs.GetInt("PlayerMetShopper", 0) == 1 && PlayerPrefs.GetInt("SleptFirstDay", 0) == 0)
 			{
 				inFishStand = true;
 				pressE.SetActive(true);
@@ -32,7 +32,7 @@ public class FishStands : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			if (PlayerPrefs.GetInt("PlayerMetShopper", 0) == 1)
+			if (PlayerPrefs.GetInt("PlayerMetShopper", 0) == 1 && PlayerPrefs.GetInt("SleptFirstDay", 0) == 0)
 			{
 				inFishStand = false;
 				pressE.SetActive(false);
@@ -47,6 +47,11 @@ public class FishStands : MonoBehaviour {
 			PlayerPrefs.SetInt("HasFish", 1);
 			fishAcq.SetActive(true);
 			// Play sound
+		}
+
+		if (PlayerPrefs.GetInt("SleptFirstDay", 0) == 1)
+		{
+			fishAcq.SetActive (false);
 		}
 	}
 

@@ -19,6 +19,7 @@ public class ShopperCam : MonoBehaviour {
 			cam.offset = new Vector2(0f, 0f);
 			cam.player = collision.gameObject.transform;
 		}
+
 	}
 
 }

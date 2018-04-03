@@ -10,6 +10,8 @@ public class Shopper : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator>();
+		if (PlayerPrefs.GetInt ("SleptFirstDay", 0) == 1)
+			Destroy (this.gameObject);
 	}
 	
 	// Update is called once per frame
@@ -24,7 +26,7 @@ public class Shopper : MonoBehaviour {
 			anim.Play("ShoperFrontDesk");
 		}
 
-		if (PlayerPrefs.GetInt("ShopperDone", 0) == 1)
+		if (PlayerPrefs.GetInt("ShopperDone", 0) == 1 && PlayerPrefs.GetInt("SleptFirstDay", 0) == 0)
 		{
 			anim.Play("ShopperLeave");
 		}
