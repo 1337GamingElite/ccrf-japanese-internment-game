@@ -4720,7 +4720,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 1177774773}
   anim: {fileID: 385534257}
-  referenceBar: {fileID: 1805658402}
   start: 0
 --- !u!114 &1783698339
 MonoBehaviour:
@@ -6267,6 +6266,11 @@ Prefab:
         type: 2}
       propertyPath: dialogue.lines.Array.data[1]
       value: "As gunfire roars in Europe, I stay in Vancouver running my fishery.\t"
+      objectReference: {fileID: 0}
+    - target: {fileID: 212183752682661492, guid: ab0de6918f0641540beb76b2260f26a4,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 2053
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab0de6918f0641540beb76b2260f26a4, type: 2}

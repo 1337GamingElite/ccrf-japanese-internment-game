@@ -9,11 +9,28 @@ public class MainMenuButtons : MonoBehaviour
 
 	public Slider slider;
 	public Text loadingText;
+	public GameObject settingsMenu;
+	public GameObject regularUI;
+	bool settingsOn = false;
 
 	public void LoadLevel (int sceneIndex)
 	{
 		PlayerPrefs.DeleteAll();
 		StartCoroutine(LoadAsynched(sceneIndex));
+	}
+
+	public void ToggleSettingsMenu()
+	{
+		if (!settingsOn){
+			settingsOn = true;
+			settingsMenu.SetActive (true);
+			regularUI.SetActive (false);
+		} else if (settingsOn)
+		{
+			settingsOn = false;
+			settingsMenu.SetActive (false);
+			regularUI.SetActive (true);
+		}
 	}
 
 	IEnumerator LoadAsynched (int sceneIndex)
