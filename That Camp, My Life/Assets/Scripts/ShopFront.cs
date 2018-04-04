@@ -6,6 +6,8 @@ public class ShopFront : MonoBehaviour {
 
 	CameraFollow camera;
 
+	public Animator governmentGuy;
+
 	Vector2 defaultOffset;
 
 	public Vector2 desiredOffset;
@@ -22,7 +24,7 @@ public class ShopFront : MonoBehaviour {
 			camera.offset = desiredOffset;
 			if (PlayerPrefs.GetInt ("SleptFirstDay", 0) == 1 && PlayerPrefs.GetInt("QueuedGovernmentGuy", 0) == 0) {
 				PlayerPrefs.SetInt ("QueuedGovernmentGuy", 1);
-				Debug.Log ("Queue Big Bad Government Guy!!!");
+				governmentGuy.Play("GovernmentShopEnter");
 			}
 		}
 	}

@@ -485,6 +485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerPref: ShopperDone
+  refocusOnPlayer: 0
 --- !u!114 &260685470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1430,7 +1431,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1654915129}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -4210,6 +4211,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1617339489}
+--- !u!20 &1654915129 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20100480624946352, guid: 47e1aeaf85e133249aa69ad59921a3a1,
+    type: 2}
+  m_PrefabInternal: {fileID: 461222770}
 --- !u!1 &1664665683
 GameObject:
   m_ObjectHideFlags: 0
@@ -4714,6 +4720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 1177774773}
   anim: {fileID: 385534257}
+  referenceBar: {fileID: 1805658402}
   start: 0
 --- !u!114 &1783698339
 MonoBehaviour:
@@ -4974,11 +4981,11 @@ MonoBehaviour:
     lineCount: 2
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:

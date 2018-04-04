@@ -5,6 +5,7 @@ using UnityEngine;
 public class DialogueOnPlayerPref : MonoBehaviour {
 
 	public string PlayerPref;
+	public bool refocusOnPlayer = false;
 	DialogueTrigger dia;
 	bool triggered = false;
 
@@ -24,7 +25,11 @@ public class DialogueOnPlayerPref : MonoBehaviour {
 
 	IEnumerator StartDia()
 	{
-		yield return new WaitForSeconds(0.3f);
+		yield return new WaitForSeconds(0.25f);
+		if (refocusOnPlayer)
+		{
+			GetComponent<RefocusPlayer>().Refocus();
+		}
 		dia.Trigger();
 	}
 

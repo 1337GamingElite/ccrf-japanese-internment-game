@@ -31,6 +31,13 @@ public class ShopperDialogueTrigger : MonoBehaviour {
 			cam.player = playerTrans;
 			this.gameObject.GetComponent<DialogueTrigger>().Trigger();
 		}
+
+		if (other.gameObject.tag == "Government")
+		{
+			player.transform.position = playerPositionDuringDialogue.position;
+			playerAnim.SetFloat("LastMoveY", -1.0f);
+			playerAnim.SetFloat("LastMoveX", 0f);
+		}
 	}
 
 }
