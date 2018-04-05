@@ -10,7 +10,6 @@ public class PlayVideoOnCavas : MonoBehaviour {
 	public RawImage image;
 	public VideoPlayer player;
 	RenderTexture text;
-	bool startedPlaying = false;
 
 	// Use this for initialization
 	void Start () {
@@ -23,12 +22,7 @@ public class PlayVideoOnCavas : MonoBehaviour {
 
 	void Update()
 	{
-		if (!startedPlaying && player.isPlaying)
-		{
-			startedPlaying = true;
-		}
-		
-		if ((long)player.frame == (long)player.frameCount & startedPlaying)
+		if ((long)player.frame == (long)player.frameCount - (long)1f && player.isPlaying)
 		{
 			SceneManager.LoadScene (0);
 		}

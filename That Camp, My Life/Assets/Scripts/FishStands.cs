@@ -8,8 +8,11 @@ public class FishStands : MonoBehaviour {
 	public GameObject pressE;
 	bool inFishStand = false;
 
+	AudioSource audio;
+
 	// Use this for initialization
 	void Start () {
+		audio = GetComponent<AudioSource>();
 		if (PlayerPrefs.GetInt("HasFish", 0) == 1)
 		{
 			fishAcq.SetActive(true);	
@@ -20,7 +23,7 @@ public class FishStands : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			if (PlayerPrefs.GetInt("PlayerMetShopper", 0) == 1 && PlayerPrefs.GetInt("SleptFirstDay", 0) == 0)
+			if (PlayerPrefs.GetInt("PlayerMetShopper", 0) == 1 && PlayerPrefs.GetInt("SleptFirstDay", 0) == 0 && PlayerPrefs.GetInt("HasFish", 0) == 0)
 			{
 				inFishStand = true;
 				pressE.SetActive(true);
@@ -32,7 +35,7 @@ public class FishStands : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			if (PlayerPrefs.GetInt("PlayerMetShopper", 0) == 1 && PlayerPrefs.GetInt("SleptFirstDay", 0) == 0)
+			if (PlayerPrefs.GetInt("PlayerMetShopper", 0) == 1 && PlayerPrefs.GetInt("SleptFirstDay", 0) == 0 && PlayerPrefs.GetInt("HasFish", 0) == 0)
 			{
 				inFishStand = false;
 				pressE.SetActive(false);
@@ -45,6 +48,7 @@ public class FishStands : MonoBehaviour {
 		if (Input.GetButtonDown("Interact") && inFishStand && PlayerPrefs.GetInt("HasFish", 0) == 0)
 		{
 			PlayerPrefs.SetInt("HasFish", 1);
+			audio.Play();
 			fishAcq.SetActive(true);
 			// Play sound
 		}

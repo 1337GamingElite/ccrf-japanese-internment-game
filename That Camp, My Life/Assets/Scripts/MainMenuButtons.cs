@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class MainMenuButtons : MonoBehaviour
@@ -12,6 +13,23 @@ public class MainMenuButtons : MonoBehaviour
 	public GameObject settingsMenu;
 	public GameObject regularUI;
 	bool settingsOn = false;
+
+	public AudioMixer audio;
+
+	public void SetMasterVolume(float volume)
+	{
+		audio.SetFloat("MasterVol", Mathf.Log(volume) * 20f);
+	}
+
+	public void SetMusicVolume(float volume)
+	{
+		audio.SetFloat("MusicVol", Mathf.Log(volume) * 20f);
+	}
+
+	public void SetSFXVolume(float volume)
+	{
+		audio.SetFloat("SFXVol", Mathf.Log(volume) * 20f);
+	}
 
 	public void LoadLevel (int sceneIndex)
 	{
