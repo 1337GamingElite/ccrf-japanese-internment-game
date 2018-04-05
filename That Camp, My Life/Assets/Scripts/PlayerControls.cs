@@ -27,9 +27,14 @@ public class PlayerControls : MonoBehaviour
 	[SerializeField]
 	private bool DiaglogueOnLoad;
 
+	public Animator diagBox;
+
+	DialogueManager dialogueManager;
+
 	// Use this for initialization
 	void Start()
 	{
+		dialogueManager = FindObjectOfType<DialogueManager> ();
 		rb2d = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
 		diaTrig = GetComponent<DialogueTrigger>();
@@ -53,6 +58,12 @@ public class PlayerControls : MonoBehaviour
 			moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 			moveVelocity = moveInput * moveSpeed;
 		}
+
+		if (dialogueManager != null && Input.GetButtonDown("ContinueDialogue") && diagBox.GetBool("IsOpen"))
+		{
+			dialogueManager.DisplayNextLine ();
+		}
+
 	}
 
 	void FixedUpdate()

@@ -66,6 +66,7 @@ public class DialogueManager : MonoBehaviour
 		if (saveStateName != null)
 		{
 			PlayerPrefs.SetInt(saveStateName, 1);
+			saveStateName = null;
 		}
 		anim.SetBool("IsOpen", false);
 	}

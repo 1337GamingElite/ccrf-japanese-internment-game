@@ -708,6 +708,11 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 4136dd1d824c0684682125dfccbd91df, type: 2}
+    - target: {fileID: 114900875548906812, guid: ab0de6918f0641540beb76b2260f26a4,
+        type: 2}
+      propertyPath: diagBox
+      value: 
+      objectReference: {fileID: 465477656}
     m_RemovedComponents:
     - {fileID: 114770956179332496, guid: ab0de6918f0641540beb76b2260f26a4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ab0de6918f0641540beb76b2260f26a4, type: 2}
